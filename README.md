@@ -3,12 +3,12 @@
 This application is a microservice that calls another microservice called Message-Generation. It acts as ResourceServer from the SSO implementation perspective.
 Below are the different dependencies and tiles we used in this application.
 
-# Hystrix
-# Spring Boot Application
-# RestController
-# SSO (ResourceServer)
-# Ribbon (LB)
-# Register with Service Registry
+    Hystrix
+    Spring Boot Application
+    RestController
+    SSO (ResourceServer)
+    Ribbon (LB)
+    Register with Service Registry
 
 To spin up a Eureka Server instance in your local pls refer to https://spring.io/blog/2015/07/14/microservices-with-spring
 
