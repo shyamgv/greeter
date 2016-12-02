@@ -1,0 +1,20 @@
+server:
+  port: 8082
+  context-path: /uaa
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+   client:
+      client-id: app
+      client-secret: appclientsecret
+      access-token-uri: http://localhost:8080/uaa/oauth/token
+      user-authorization-uri: http://localhost:8080/uaa/oauth/authorize
+      client-authentication-scheme: header
+      logout-uri: http://localhost:8080/uaa/logout
+      authorities: ADMIN
+      token-name: oauth_token
+      registered-redirect-uri: http://localhost:8082/uaa/hello
+   resource:
+     user-info-uri: http://localhost:8080/uaa/userinfo

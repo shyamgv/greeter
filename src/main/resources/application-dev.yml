@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: greeter
+  services:
+    registrationMethod: route
+#  datasource:
+#    initial-size: 1
+server:
+  port: 8082
+  context-path: /
+
+management:
+  context-path: /admin
+  security:
+    enabled: false
+producer:
+  ribbon:
+    ServerListRefreshInterval: 5000
+    IsSecure: falseconfig.name
+security:
+  basic:
+    enabled: false
+  require_ssl: false
+  oauth2:
+   client:
+      client-id: app
+      client-secret: appclientsecret
+      access-token-uri: http://localhost:8080/uaa/oauth/token
+      user-authorization-uri: http://localhost:8080/uaa/oauth/authorize
+      check-token: http://localhost:8080/uaa/oauth/check_token
+      client-authentication-scheme: header
+      authorities: uaa.user,uaa.admin
+      token-name: oauth_token
+      registered-redirect-uri: http://localhost:8082/hello
+   resource:
+      preferTokenInfo: false
+      user-info-uri: http://localhost:8080/uaa/userinfo
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+     defaultZone: http://localhost:1111/eureka/

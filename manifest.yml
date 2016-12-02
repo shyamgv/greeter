@@ -1,0 +1,14 @@
+---
+instances: 1
+memory: 1G
+applications:
+  - name: greeter
+    host: greeter-shyam
+    buildpack: java_buildpack_offline
+    path: target/greeter-0.0.1-SNAPSHOT.jar
+    services:
+      - service-registry
+      - circuit-breaker-dashboard
+    env:
+      SPRING_PROFILES_ACTIVE: cloud
+      CF_TARGET: https://api.sys.xxx.xxx.xxxx.com

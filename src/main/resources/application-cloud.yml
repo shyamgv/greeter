@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: greeter
+  cloud:
+    services:
+      registrationMethod: route
+
+management:
+  context-path: /admin
+  security:
+    enabled: false
+server:
+  port: 8082
+
+producer:
+  ribbon:
+    ServerListRefreshInterval: 5000
+    IsSecure: false
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    resource:
+      user-info-uri: https://xxxx.login.sys.xxx.xxxx.com/userinfo
+      jwt:
+        key-uri: https://xxxx.login.sys.xxx.xxx.com/token_key
+
+logging:
+  level:
+    org.springframework.security: INFO
