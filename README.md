@@ -15,14 +15,18 @@ To spin up a Eureka Server instance in your local pls refer to https://spring.io
 #Building and Deploying without using pipeline
 
 1) Go to the project root
-$ mvn clean package
+
+    $ mvn clean package
+
 2) (Local) Set the active profile as dev in local so that the application looks into application-dev.properties for configuration and then run the app using IDE or command line
-Go to (Run/debug Configurations -> Select GreeterApplication -> Environment Variables)
-    SPRING_PROFILES_ACTIVE=dev
-$mvn spring-boot:run
+
+    Go to (Run/debug Configurations -> Select GreeterApplication -> Environment Variables)
+        SPRING_PROFILES_ACTIVE=dev
+    $mvn spring-boot:run
 3) (Cloud) On PCF - set the following environment variables
-* SPRING_PROFILES_ACTIVE
-* CF_TARGET
+
+    * SPRING_PROFILES_ACTIVE
+    * CF_TARGET
 
 For ease all these are set using the manifest.yml. If you want to set it manually then use the command like below from CF command line.
 
@@ -38,6 +42,7 @@ Config-Server, Service Registry and SSO we need to create services in our PCF Sp
 Bind Services
 =============
 Bind the created services to this application
+
     $ cf bind-service greeter service-registry
     $ cf bind-service greeter circuit-breaker-dashboard
     
